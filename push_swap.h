@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/23 11:55:20 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/02/23 22:33:58 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-typedef struct      s_list
+typedef struct s_list
 {
-    void            *content;
+    int                     value;
     struct s_list   *next;   
-}                   t_list;
+}                                   t_list;
 
 int check_parameters(char **argv);
 int	ft_strcmp(const char *str1, const char *str2);
@@ -28,5 +28,10 @@ int	ft_atoi(const char *number);
 
 void	ft_putstr_fd(char *s, int fd);
 void    ft_putchar_fd(char c, int fd);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+
+t_list	*ft_lstnew(int fparam);
+t_list	*ft_lstlast(t_list *lst);
+
 #endif
 
