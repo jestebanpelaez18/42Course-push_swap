@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:22:46 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/23 11:19:17 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/02/23 12:07:57 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,22 @@ static int duplicate_parameter(char **arguments)
     return(1);
 }
 
+static int check_max_values(char **arguments)
+{
+    long int temp;
+    int i;
+
+    i = 0;
+    while(arguments[i] != NULL)
+    {
+        temp = ft_atoi(arguments[i]);
+        if (temp == -2 || temp == -1)
+            return(0);
+        i++;        
+    }
+    return(1);
+}
+
 int check_parameters(char **argv)
 {
     int i;
@@ -65,6 +81,8 @@ int check_parameters(char **argv)
         i++;
     }
     if (!duplicate_parameter(argv))
+        return(0);
+    if (!check_max_values(argv))
         return(0);
     return(1);
 }

@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:39:12 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/23 10:53:58 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/02/23 12:07:36 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,33 @@ int	ft_strcmp(const char *str1, const char *str2)
 	while ((str1[i] != '\0' && str2[i] != '\0') && str1[i] == str2[i])
 		i++;
 	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
+}
+
+int	ft_atoi(const char *number)
+{
+	int			i;
+	int			sing;
+	int long	result;
+
+	i = 0;
+	sing = 1;
+	result = 0;
+	while ((number[i] >= 9 && number[i] <= 13) || number[i] == 32)
+		i++;
+	if (number[i] == '+' || number[i] == '-')
+	{
+		if (number[i] == '-')
+			sing = -1;
+		i++;
+	}
+	while (number[i] >= '0' && number[i] <= '9')
+	{
+		result = result * 10 + (number[i] - '0');
+		if (result > 2147483648 && sing == -1)
+			return (-2);
+		else if (result > 2147483647 && sing == 1)
+			return (-1);
+		i++;
+	}
+	return ((int)(result * sing));
 }
