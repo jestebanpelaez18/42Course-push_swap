@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:21:02 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/23 22:33:15 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/02/28 14:44:05 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ t_list	*ft_lstnew(int fparam)
 {
 	t_list	*stack;
 
-	stack= NULL;
 	stack = (t_list *)malloc(sizeof(t_list));
 	if (stack == NULL)
 		return (NULL);
@@ -30,8 +29,6 @@ t_list	*ft_lstlast(t_list *lst)
 	t_list	*current;
 
 	current = lst;
-	if (current == NULL)
-		return (NULL);
 	while (current->next != NULL)
 		current = current->next;
 	return (current);
@@ -40,15 +37,14 @@ t_list	*ft_lstlast(t_list *lst)
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*last;
+	t_list	*bottom;
 
 	last = *lst;
 	if (*lst == NULL)
 	{
 		*lst = new;
+		return ;
 	}
-	else
-	{
-		ft_lstlast(last);
-		last->next = new;
-	}
+	bottom = ft_lstlast(last);
+	bottom->next = new;
 }

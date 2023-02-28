@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/23 22:33:58 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/02/27 21:09:14 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_list
 {
