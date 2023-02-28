@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/27 21:09:14 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/02/28 15:22:38 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct s_list
 int check_parameters(char **argv);
 int	ft_strcmp(const char *str1, const char *str2);
 int	ft_atoi(const char *number);
+int is_sorted(t_list *stack);
 
 void	ft_putstr_fd(char *s, int fd);
 void    ft_putchar_fd(char c, int fd);

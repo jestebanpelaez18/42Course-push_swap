@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/28 14:50:59 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/02/28 18:34:35 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,8 @@ int main(int argc, char **argv)
         return(0);
     }
     stack_a = fill_stack_a(argv);
+    if(is_sorted(stack_a) == 1)
+        return(0);
     // stack_b = NULL;
     // printList(stack_a);
     return(0);

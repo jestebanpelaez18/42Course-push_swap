@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:21:02 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/28 14:44:05 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/02/28 18:27:51 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,4 +47,15 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	bottom = ft_lstlast(last);
 	bottom->next = new;
+}
+
+int is_sorted(t_list *stack)
+{
+	while (stack->next != NULL)
+	{
+		if (stack->value > stack->next->value)
+			return(0);
+		stack = stack->next;
+	}
+	return(1);
 }
