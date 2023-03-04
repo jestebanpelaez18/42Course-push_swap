@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/01 20:19:55 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/04 13:33:27 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,23 +28,24 @@ static t_list *fill_stack_a(char **arguments)
     return(stack_a);
 }
 
-void printList(t_list *node)
-{
-    while (node != NULL) 
-    {
-        printf("%d -> ", node->value);
-        node = node->next;
-    }
-    printf("NULL \n");
-}
 
-// void push_swap(t_list **stack_a,int size_stack)
+// void printList(t_list *node)
 // {
-//     if (size_stack <= 5)
-//         small_sort(stack_a, size_stack);
-//     else
-//         return ;  
+//     while (node != NULL) 
+//     {
+//         printf("%d -> ", node->value);
+//         node = node->next;
+//     }
+//     printf("NULL \n");
 // }
+
+static void push_swap(t_list **stack_a, t_list **stack_b, int size_stack)
+{
+    if (size_stack <= 5)
+        small_sort(stack_a, stack_b, size_stack);
+    else
+        return ;  
+}
 
 int main(int argc, char **argv)
 {
@@ -62,7 +63,8 @@ int main(int argc, char **argv)
     if(is_sorted(stack_a) == 1)
         return(0);
     stack_b = NULL;
-    push_swap(&stack_a, ft_lstsize(stack_a));
+    index_stack(&stack_a, ft_lstsize(stack_a));
+    push_swap(&stack_a, &stack_b, ft_lstsize(stack_a));
     // printList(stack_a);
     return(0);
 }
