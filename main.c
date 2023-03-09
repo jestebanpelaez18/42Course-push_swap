@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/08 20:37:29 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/09 14:19:34 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ void printList(t_list *node)
     // printf("NULL \n");
 }
 
-static void push_swap(t_list **stack_a, int size_stack)
+static void push_swap(t_list **stack_a, t_list **stack_b, int size_stack)
 {
     if (size_stack <= 5)
-        small_sort(stack_a, size_stack);
+        small_sort(stack_a, stack_b, size_stack);
     else
         return ;  
 }
@@ -59,7 +59,7 @@ static void push_swap(t_list **stack_a, int size_stack)
 int main(int argc, char **argv)
 {
     t_list  *stack_a;
-    // t_list  *stack_b;
+    t_list  *stack_b;
     
     if (argc < 2)
         return(1);
@@ -71,9 +71,9 @@ int main(int argc, char **argv)
     stack_a = fill_stack_a(argv);
     if(is_sorted(stack_a) == 1)
         return(0);
-    // stack_b = NULL;
+    stack_b = NULL;
     index_stack(&stack_a, ft_lstsize(stack_a));
-    push_swap(&stack_a, ft_lstsize(stack_a));
+    push_swap(&stack_a, &stack_b, ft_lstsize(stack_a));
     printList(stack_a);
     return(0);
 }

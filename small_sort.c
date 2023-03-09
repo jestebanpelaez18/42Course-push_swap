@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:42:06 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/09 14:15:07 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/09 14:19:47 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,13 @@ static void sort_for_3(t_list **stack)
         sa(stack);   
 }
 
-void small_sort(t_list **stack_a, int size_stack)
+void small_sort(t_list **stack_a, t_list **stack_b, int size_stack)
 {
     if (size_stack == 2)
         sa(stack_a);
     else if (size_stack == 3)
         sort_for_3(stack_a);
     else 
+        sort_for_5(stack_a, stack_b);
         return ;
 }
