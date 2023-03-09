@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/04 13:33:27 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/08 20:37:29 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,29 @@ static t_list *fill_stack_a(char **arguments)
 }
 
 
-// void printList(t_list *node)
-// {
-//     while (node != NULL) 
-//     {
-//         printf("%d -> ", node->value);
-//         node = node->next;
-//     }
-//     printf("NULL \n");
-// }
+void printList(t_list *node)
+{
+    // t_list *temp;
 
-static void push_swap(t_list **stack_a, t_list **stack_b, int size_stack)
+    // temp = node;
+    while (node != NULL) 
+    {
+        printf("%d -> ", node->value);
+        node = node->next;
+    }
+    printf("NULL \n\n");
+    // while (temp != NULL) 
+    // {
+    //     printf("%d -> ", temp->index);
+    //     temp = temp->next;
+    // }
+    // printf("NULL \n");
+}
+
+static void push_swap(t_list **stack_a, int size_stack)
 {
     if (size_stack <= 5)
-        small_sort(stack_a, stack_b, size_stack);
+        small_sort(stack_a, size_stack);
     else
         return ;  
 }
@@ -50,7 +59,7 @@ static void push_swap(t_list **stack_a, t_list **stack_b, int size_stack)
 int main(int argc, char **argv)
 {
     t_list  *stack_a;
-    t_list  *stack_b;
+    // t_list  *stack_b;
     
     if (argc < 2)
         return(1);
@@ -62,9 +71,9 @@ int main(int argc, char **argv)
     stack_a = fill_stack_a(argv);
     if(is_sorted(stack_a) == 1)
         return(0);
-    stack_b = NULL;
+    // stack_b = NULL;
     index_stack(&stack_a, ft_lstsize(stack_a));
-    push_swap(&stack_a, &stack_b, ft_lstsize(stack_a));
-    // printList(stack_a);
+    push_swap(&stack_a, ft_lstsize(stack_a));
+    printList(stack_a);
     return(0);
 }

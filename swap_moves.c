@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:03:43 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/01 20:20:34 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/08 17:53:53 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ static void swap(t_list *stack)
     temp = stack->value;
     stack->value = stack->next->value;
     stack->next->value = temp;    
+    // temp = stack->index;
+    // stack->index = stack->next->index;
+    // stack->next->index = temp; 
 }
 
 void sa(t_list **stack_a)
