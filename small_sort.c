@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 21:42:06 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/09 14:19:47 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/10 21:26:30 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,26 @@ static void sort_for_3(t_list **stack)
         sa(stack);   
 }
 
+static void sort_for_5(t_list **stack_a, t_list **stack_b, int size_stack)
+{
+    int limit;
+
+    limit = size_stack;
+    while (limit > 0)
+    {
+        if ((*stack_a)->index == 1 || (*stack_a)->index == 2)
+            pb(stack_a,stack_b);
+        else
+            ra(stack_a);
+        limit--;
+    }
+    sort_for_3(stack_a);
+    pa(stack_a,stack_b);
+    pa(stack_a,stack_b);
+    if((*stack_a)->value > (*stack_a)->next->value)
+        sa(stack_a);
+}
+
 void small_sort(t_list **stack_a, t_list **stack_b, int size_stack)
 {
     if (size_stack == 2)
@@ -32,6 +52,6 @@ void small_sort(t_list **stack_a, t_list **stack_b, int size_stack)
     else if (size_stack == 3)
         sort_for_3(stack_a);
     else 
-        sort_for_5(stack_a, stack_b);
+        sort_for_5(stack_a, stack_b, size_stack);
         return ;
 }
