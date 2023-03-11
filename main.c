@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/09 14:19:34 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/11 17:15:33 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ static void push_swap(t_list **stack_a, t_list **stack_b, int size_stack)
     if (size_stack <= 5)
         small_sort(stack_a, stack_b, size_stack);
     else
-        return ;  
+        big_sort(stack_a, stack_b, size_stack);
+    return ;  
 }
 
 int main(int argc, char **argv)
