@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/11 20:49:00 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/12 11:00:35 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,5 +76,7 @@ int main(int argc, char **argv)
     index_stack(&stack_a, ft_lstsize(stack_a));
     push_swap(&stack_a, &stack_b, ft_lstsize(stack_a));
     printList(stack_a);
+    free(&stack_a);
+    free(&stack_b);
     return(0);
 }
