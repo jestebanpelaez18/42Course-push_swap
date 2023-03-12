@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/11 17:16:57 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/11 20:49:33 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void    ft_putchar_fd(char c, int fd);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void    index_stack(t_list **stack_a, int size_stack);
 void    small_sort(t_list **stack_a, t_list **stack_b, int size_stack);
-void    big_sort(t_list **stack_a, t_list **stack_b, int size_stack)
+void    big_sort(t_list **stack_a, t_list **stack_b, int size_stack);
 void    sa(t_list **stack_a);
 void    sb(t_list **stack_b);
 void    ss(t_list **stack_a, t_list **stack_b);

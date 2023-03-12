@@ -6,7 +6,7 @@
 /*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 17:15:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/11 20:29:27 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/12 10:34:36 by jestebanpel      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,17 @@ void big_sort(t_list **stack_a, t_list **stack_b, int size_stack)
         temp = *stack_a;
         while(i < size_stack)
         {
-            if(((temp->index >> i) & 1) == 0)
+            if(((temp->index >> bit) & 1) == 0)
                 pb(stack_a,stack_b);
             else 
                 ra(stack_a); 
             temp = *stack_a;
             i++;
         }
-        
+        while(*stack_b != NULL)
+            pa(stack_a,stack_b);
+        bit++;
+        if (is_sorted((*stack_a)) == 1)
+            return ;      
     }
 }
