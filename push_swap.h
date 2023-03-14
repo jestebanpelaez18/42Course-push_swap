@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
+/*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/12 10:52:56 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/13 23:10:38 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ typedef struct s_list
 int check_parameters(char **argv);
 int	ft_strcmp(const char *str1, const char *str2);
 int	ft_atoi(const char *number);
+int	ft_atoi_2(const char *number);
 int is_sorted(t_list *stack);
 int	ft_lstsize(t_list *lst);
 int get_max_index(t_list *stack);

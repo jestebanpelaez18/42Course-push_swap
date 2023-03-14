@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker_errors.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
+/*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:22:46 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/23 12:07:57 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/13 23:12:29 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,10 @@ static int non_numeric_parameters(char *param)
     int i;
 
     i = 0;
+    if((param[i] == '-' || param[i] == '+') && param[i + 1] != '\0')
+        i++;
     while (param[i] != '\0' )
-    {
+    {   
         if(!is_number(param[i]))
             return(0);
         i++;
@@ -61,8 +63,8 @@ static int check_max_values(char **arguments)
     i = 0;
     while(arguments[i] != NULL)
     {
-        temp = ft_atoi(arguments[i]);
-        if (temp == -2 || temp == -1)
+        temp = ft_atoi_2(arguments[i]);
+        if (temp == 0)
             return(0);
         i++;        
     }
