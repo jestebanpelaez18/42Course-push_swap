@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/12 17:31:14 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/15 22:05:30 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,24 @@ static t_list *fill_stack_a(char **arguments)
 }
 
 
-void printList(t_list *node)
-{
-    // t_list *temp;
+// void printList(t_list *node)
+// {
+//     // t_list *temp;
 
-    // temp = node;
-    while (node != NULL) 
-    {
-        printf("%d -> ", node->value);
-        node = node->next;
-    }
-    printf("NULL \n\n");
-    // while (temp != NULL) 
-    // {
-    //     printf("%d -> ", temp->index);
-    //     temp = temp->next;
-    // }
-    // printf("NULL \n");
-}
+//     // temp = node;
+//     while (node != NULL) 
+//     {
+//         printf("%d -> ", node->value);
+//         node = node->next;
+//     }
+//     printf("NULL \n\n");
+//     // while (temp != NULL) 
+//     // {
+//     //     printf("%d -> ", temp->index);
+//     //     temp = temp->next;
+//     // }
+//     // printf("NULL \n");
+// }
 
 static void push_swap(t_list **stack_a, t_list **stack_b, int size_stack)
 {
@@ -63,19 +63,19 @@ int main(int argc, char **argv)
     t_list  *stack_b;
     
     if (argc < 2)
-        return(1);
+        exit(0);
     if(!check_parameters(argv))
-    {
-        ft_putstr_fd("Error\n ", 1);
-        return(0);
-    }
+        error_msg("Error");
     stack_a = fill_stack_a(argv);
     if(is_sorted(stack_a) == 1)
-        return(0);
+    {
+        free_stack(&stack_a);
+        exit(0);
+    }
     stack_b = NULL;
     index_stack(&stack_a, ft_lstsize(stack_a));
     push_swap(&stack_a, &stack_b, ft_lstsize(stack_a));
-    printList(stack_a);
+    // printList(stack_a);
     free_stack(&stack_a);
     free_stack(&stack_b);
     return(0);

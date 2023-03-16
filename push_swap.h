@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/13 23:10:38 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/15 22:07:17 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void    rr(t_list **stack_a, t_list **stack_b);
 void    pa(t_list **stack_a, t_list **stack_b);
 void    pb(t_list **stack_a, t_list **stack_b);
 void    free_stack(t_list **stack);
+void    error_msg(char *msg);
 
 t_list	*ft_lstnew(int fparam);
 t_list	*ft_lstlast(t_list *lst);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lklst_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
+/*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/23 19:21:02 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/02/28 18:43:56 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/16 14:04:00 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
