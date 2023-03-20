@@ -6,20 +6,28 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/20 19:29:11 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/20 23:16:25 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_list *fill_stack_a(char **arguments)
+static t_list *fill_stack_a(char **arguments, int n_arg)
 {
     t_list  *stack_a;
     int i;
+    char    **temp;
 
     stack_a = NULL;
-    i = 1;
-    while(arguments[i])
+    i = 0;
+    if(n_arg == 2)
+        temp = ft_split(arguments[1],' ');
+    else 
+    {
+        i = 1;
+        temp = arguments;
+    }
+    while(temp[i])
     {   
         if (i == 1)
             stack_a = ft_lstnew(ft_atoi(arguments[i]));
@@ -27,6 +35,8 @@ static t_list *fill_stack_a(char **arguments)
             ft_lstadd_back(&stack_a,ft_lstnew(ft_atoi(arguments[i])));
         i++;
     }
+    if(n_arg == 2)
+        free_argt(temp);
     return(stack_a);
 }
 
@@ -68,7 +78,7 @@ int main(int argc, char **argv)
         return(0);
     if(!check_parameters(argv))
         error_msg("Error");
-    stack_a = fill_stack_a(argv);
+    stack_a = fill_stack_a(argv,argc);
     stack_b = NULL;
     if(is_sorted(stack_a) == 1)
     {
@@ -78,7 +88,6 @@ int main(int argc, char **argv)
     }
     index_stack(&stack_a, ft_lstsize(stack_a));
     push_swap(&stack_a, &stack_b, ft_lstsize(stack_a));
-    // printList(stack_a);
     free_stack(&stack_a);
     free_stack(&stack_b);
     return(0);

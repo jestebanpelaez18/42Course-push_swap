@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/15 22:07:17 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/20 21:23:13 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ int is_sorted(t_list *stack);
 int	ft_lstsize(t_list *lst);
 int get_max_index(t_list *stack);
 
+size_t	ft_strlen(const char *str);
+
 void	ft_putstr_fd(char *s, int fd);
 void    ft_putchar_fd(char c, int fd);
 void	ft_lstadd_back(t_list **lst, t_list *new);
@@ -51,9 +53,12 @@ void    pa(t_list **stack_a, t_list **stack_b);
 void    pb(t_list **stack_a, t_list **stack_b);
 void    free_stack(t_list **stack);
 void    error_msg(char *msg);
+void	free_argt(char **argument);
 
 t_list	*ft_lstnew(int fparam);
 t_list	*ft_lstlast(t_list *lst);
+
+char	**ft_split(char const *s, char c);
 
 #endif
 

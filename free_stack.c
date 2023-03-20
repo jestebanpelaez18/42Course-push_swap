@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/15 22:04:50 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/20 21:22:44 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,20 @@ void free_stack(t_list **stack)
     *stack = NULL;
 }
 
+void	free_argt(char **argument)
+{
+	int	i;
+
+	i = 0;
+	while (argument[i])
+	{
+		free(argument[i]);
+		argument[i] = NULL;
+		i++;
+	}
+	free(argument);
+}
+
 static void	ft_putendl_fd(char *s, int fd)
 {
 	size_t	i;
@@ -40,6 +54,18 @@ static void	ft_putendl_fd(char *s, int fd)
 		i++;
 	}
 	write(fd, "\n", 1);
+}
+
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }
 
 void error_msg(char *msg)
