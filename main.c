@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/15 22:05:30 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/20 19:29:11 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,13 @@ static t_list *fill_stack_a(char **arguments)
     int i;
 
     stack_a = NULL;
-    stack_a = ft_lstnew(ft_atoi(arguments[1]));
-    i = 2;
-    while(arguments[i] != NULL)
-    {
-        ft_lstadd_back(&stack_a,ft_lstnew(ft_atoi(arguments[i])));
+    i = 1;
+    while(arguments[i])
+    {   
+        if (i == 1)
+            stack_a = ft_lstnew(ft_atoi(arguments[i]));
+        else
+            ft_lstadd_back(&stack_a,ft_lstnew(ft_atoi(arguments[i])));
         i++;
     }
     return(stack_a);
@@ -63,16 +65,17 @@ int main(int argc, char **argv)
     t_list  *stack_b;
     
     if (argc < 2)
-        exit(0);
+        return(0);
     if(!check_parameters(argv))
         error_msg("Error");
     stack_a = fill_stack_a(argv);
+    stack_b = NULL;
     if(is_sorted(stack_a) == 1)
     {
         free_stack(&stack_a);
+        free_stack(&stack_b);
         exit(0);
     }
-    stack_b = NULL;
     index_stack(&stack_a, ft_lstsize(stack_a));
     push_swap(&stack_a, &stack_b, ft_lstsize(stack_a));
     // printList(stack_a);

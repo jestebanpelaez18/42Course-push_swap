@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   index.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
+/*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/02 21:36:36 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/08 20:33:58 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/20 19:40:24 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-static t_list *min(t_list **stack_a, int limit)
+static t_list *min(t_list **stack_a, long limit)
 {
     t_list *temp;
     t_list *temp_min;
@@ -53,11 +53,11 @@ int get_max_index(t_list *stack)
 void index_stack(t_list **stack_a, int size_stack)
 {
     t_list *temp;
-    int    limit;
+    long    limit;
     int i;
 
     i = 1;
-    limit = -2147483648;
+    limit = -2147483649;
     temp = min(stack_a,limit);
     while(i < size_stack + 1)
     {
