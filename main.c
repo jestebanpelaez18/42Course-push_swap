@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/21 14:43:58 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:27:31 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	if (!check_parameters(argv))
+	if (!check_parameters(argv,argc))
 		error_msg("Error");
 	stack_a = fill_stack_a(argv, argc);
 	stack_b = NULL;

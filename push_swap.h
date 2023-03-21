@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/21 14:45:27 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:29:15 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
-int					check_parameters(char **argv);
+int					check_parameters(char **argv, int n_argc);
 int					ft_strcmp(const char *str1, const char *str2);
 int					ft_atoi(const char *number);
 int					ft_atoi_2(const char *number);
