@@ -3,44 +3,41 @@
 /*                                                        :::      ::::::::   */
 /*   swap_moves.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jestebanpelaez <jestebanpelaez@student.    +#+  +:+       +#+        */
+/*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 12:03:43 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/08 17:53:53 by jestebanpel      ###   ########.fr       */
+/*   Updated: 2023/03/21 14:46:37 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void swap(t_list *stack)
+static void	swap(t_list *stack)
 {
-    int  temp;
+	int	temp;
 
-    if(stack == NULL || stack->next == NULL)
-        return ;
-    temp = stack->value;
-    stack->value = stack->next->value;
-    stack->next->value = temp;    
-    // temp = stack->index;
-    // stack->index = stack->next->index;
-    // stack->next->index = temp; 
+	if (stack == NULL || stack->next == NULL)
+		return ;
+	temp = stack->value;
+	stack->value = stack->next->value;
+	stack->next->value = temp;
 }
 
-void sa(t_list **stack_a)
+void	sa(t_list **stack_a)
 {
-    swap(*stack_a);
-    ft_putstr_fd("sa\n",1);
+	swap(*stack_a);
+	ft_putstr_fd("sa\n", 1);
 }
 
-void sb(t_list **stack_b)
+void	sb(t_list **stack_b)
 {
-    swap(*stack_b);
-    ft_putstr_fd("sb\n",1);
+	swap(*stack_b);
+	ft_putstr_fd("sb\n", 1);
 }
 
-void ss(t_list **stack_a, t_list **stack_b)
+void	ss(t_list **stack_a, t_list **stack_b)
 {
-    swap(*stack_a);
-    swap(*stack_b);
-    ft_putstr_fd("ss\n",1);   
+	swap(*stack_a);
+	swap(*stack_b);
+	ft_putstr_fd("ss\n", 1);
 }

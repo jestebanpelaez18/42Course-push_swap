@@ -6,25 +6,25 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/20 21:22:44 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/21 14:43:18 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void free_stack(t_list **stack)
+void	free_stack(t_list **stack)
 {
-    t_list *current;
+	t_list	*current;
 
-    if(!stack || !(*stack))
-        return ;
-    while((*stack)->next != NULL)
-    {
-        current = *stack;
-        *stack = (*stack)->next;
-        free(current);
-    }
-    *stack = NULL;
+	if (!stack || !(*stack))
+		return ;
+	while ((*stack)->next != NULL)
+	{
+		current = *stack;
+		*stack = (*stack)->next;
+		free(current);
+	}
+	*stack = NULL;
 }
 
 void	free_argt(char **argument)
@@ -68,8 +68,8 @@ size_t	ft_strlen(const char *str)
 	return (i);
 }
 
-void error_msg(char *msg)
+void	error_msg(char *msg)
 {
-    ft_putendl_fd(msg,2);
-    exit(0);
+	ft_putendl_fd(msg, 2);
+	exit(0);
 }
