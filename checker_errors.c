@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:22:46 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/21 17:32:32 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/21 17:34:45 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ int	check_parameters(char **argv, int n_argc)
 	}
 	while (temp[i] != NULL)
 	{
-		if (!non_numeric_parameters(argv[i]))
+		if (!non_numeric_parameters(temp[i]))
 			return (0);
 		i++;
 	}
