@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/21 14:43:18 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:09:31 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ void	free_stack(t_list **stack)
 
 	if (!stack || !(*stack))
 		return ;
-	while ((*stack)->next != NULL)
+	while ((*stack))
 	{
 		current = *stack;
 		*stack = (*stack)->next;
 		free(current);
 	}
-	*stack = NULL;
+	free(stack);
 }
 
 void	free_argt(char **argument)
