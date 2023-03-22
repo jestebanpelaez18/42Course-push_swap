@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/22 20:09:31 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/22 20:20:06 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,5 +71,5 @@ size_t	ft_strlen(const char *str)
 void	error_msg(char *msg)
 {
 	ft_putendl_fd(msg, 2);
-	exit(0);
+	exit(1);
 }
