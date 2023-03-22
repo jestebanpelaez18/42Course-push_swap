@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:22:46 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/21 17:34:45 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/21 22:26:40 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,14 +76,11 @@ int	check_parameters(char **argv, int n_argc)
 	int		i;
 	char	**temp;
 
-	i = 0;
+	temp = argv;
 	if (n_argc == 2)
-		temp = ft_split(argv[1], ' ');
+		i = 0;
 	else
-	{
 		i = 1;
-		temp = argv;
-	}
 	while (temp[i] != NULL)
 	{
 		if (!non_numeric_parameters(temp[i]))
@@ -94,7 +91,5 @@ int	check_parameters(char **argv, int n_argc)
 		return (0);
 	if (!check_max_values(temp))
 		return (0);
-	if (n_argc == 2)
-		free_argt(temp);
 	return (1);
 }
