@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/22 13:36:05 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:03:23 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,9 +72,9 @@ int	main(int argc, char **argv)
 		temp = ft_split(argv[1], ' ');
 	else
 		temp = argv;
-	if (!check_parameters(temp,argc))
+	if (!check_parameters(temp, argc))
 		error_msg("Error");
-	stack_a = fill_stack_a(temp,argc);
+	stack_a = fill_stack_a(temp, argc);
 	stack_b = NULL;
 	if (is_sorted(stack_a) == 1)
 	{
