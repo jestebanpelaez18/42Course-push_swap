@@ -1,47 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/02 18:00:59 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/16 14:27:50 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_list	*current;
+	int	len;
 
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
+	len = ft_strlen(s);
+	if (c == '\0')
+		return ((char *)s + len);
+	while (len >= 0)
 	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
+		if (s[len] == (unsigned char)c)
+			return ((char *)s + len);
+		len--;
 	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
-
-	i = 0;
-	while (argument[i])
-	{
-		free(argument[i]);
-		argument[i] = NULL;
-		i++;
-	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	return (0);
 }

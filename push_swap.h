@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/21 22:26:46 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/23 15:43:02 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include "libft/libft.h"
 
 typedef struct s_list
 {
@@ -26,16 +27,11 @@ typedef struct s_list
 
 int					check_parameters(char **argv, int n_argc);
 int					ft_strcmp(const char *str1, const char *str2);
-int					ft_atoi(const char *number);
 int					ft_atoi_2(const char *number);
 int					is_sorted(t_list *stack);
 int					ft_lstsize(t_list *lst);
 int					get_max_index(t_list *stack);
 
-size_t				ft_strlen(const char *str);
-
-void				ft_putstr_fd(char *s, int fd);
-void				ft_putchar_fd(char c, int fd);
 void				ft_lstadd_back(t_list **lst, t_list *new);
 void				index_stack(t_list **stack_a, int size_stack);
 void				small_sort(t_list **stack_a, t_list **stack_b,
@@ -60,6 +56,5 @@ void				free_argt(char **argument);
 t_list				*ft_lstnew(int fparam);
 t_list				*ft_lstlast(t_list *lst);
 
-char				**ft_split(char const *s, char c);
 
 #endif

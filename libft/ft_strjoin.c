@@ -1,47 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/07 12:37:18 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:43:12 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
+#include <stdio.h>
 
-void	free_stack(t_list **stack)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	t_list	*current;
+	char	*s3;
+	size_t	i;
+	size_t	j;
 
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
-	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
-	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
-
+	if (s1 == NULL || s2 == NULL)
+		return (0);
 	i = 0;
-	while (argument[i])
+	j = 0;
+	s3 = (char *)malloc(sizeof(char) * ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (s3 == NULL)
+		return (0);
+	while (s1[i] != '\0')
 	{
-		free(argument[i]);
-		argument[i] = NULL;
+		s3[i] = s1[i];
 		i++;
 	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	while (s2[j] != '\0')
+		s3[i++] = s2[j++];
+	s3[i] = '\0';
+	return (s3);
 }

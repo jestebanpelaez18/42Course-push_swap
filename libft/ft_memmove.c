@@ -1,41 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   big_sort.c                                         :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 17:15:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:45:34 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/01 13:37:27 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:40:53 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	big_sort(t_list **stack_a, t_list **stack_b, int size_stack)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int		i;
-	int		bit;
-	t_list	*temp;
+	unsigned char	*array_dst;
+	unsigned char	*array_src;
+	size_t			i;
 
-	bit = 0;
-	while (bit < 32)
+	i = 0;
+	array_dst = (unsigned char *)dst;
+	array_src = (unsigned char *)src;
+	if (dst == NULL && src == NULL)
+		return (0);
+	if (dst > src)
 	{
-		i = 0;
-		temp = *stack_a;
-		while (i < size_stack)
+		while (len-- > 0)
 		{
-			if (((temp->index >> bit) & 1) == 0)
-				pb(stack_a, stack_b);
-			else
-				ra(stack_a);
-			temp = *stack_a;
+			array_dst[len] = array_src[len];
+		}
+	}
+	else
+	{
+		while (i < len)
+		{
+			array_dst[i] = array_src[i];
 			i++;
 		}
-		while (*stack_b != NULL)
-			pa(stack_a, stack_b);
-		bit++;
-		if (is_sorted((*stack_a)) == 1)
-			return ;
 	}
+	return (dst);
 }

@@ -1,47 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/01 14:42:20 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:55:22 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+int	ft_memcmp(const void *str1, const void *str2, size_t n)
 {
-	t_list	*current;
+	const char	*array1;
+	const char	*array2;
 
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
+	array1 = str1;
+	array2 = str2;
+	while (n != 0)
 	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
+		if (*(unsigned char *)array1 != *(unsigned char *)array2)
+			return (*(unsigned char *)array1 - *(unsigned char *)array2);
+		array1++;
+		array2++;
+		n--;
 	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
-
-	i = 0;
-	while (argument[i])
-	{
-		free(argument[i]);
-		argument[i] = NULL;
-		i++;
-	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	return (0);
 }

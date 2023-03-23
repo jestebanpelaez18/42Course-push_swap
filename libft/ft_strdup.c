@@ -1,47 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/01 17:35:26 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:56:53 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+char	*ft_strdup(const char *src)
 {
-	t_list	*current;
+	int		len;
+	int		i;
+	char	*dest;
 
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
+	len = 0;
+	while (src[len])
 	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
+		len++;
 	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
-
+	dest = malloc(sizeof(char) * (len + 1));
 	i = 0;
-	while (argument[i])
+	if (dest == NULL)
 	{
-		free(argument[i]);
-		argument[i] = NULL;
+		return (0);
+	}
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
 		i++;
 	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	dest[i] = '\0';
+	return (dest);
 }

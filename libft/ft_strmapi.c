@@ -1,47 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/07 16:14:08 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:45:08 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_list	*current;
+	char	*s1;
+	size_t	i;
 
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
-	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
-	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
-
+	if (s == NULL)
+		return (0);
 	i = 0;
-	while (argument[i])
+	s1 = (char *)malloc(sizeof(char) * ft_strlen(s) + 1);
+	if (s1 == 0)
+		return (0);
+	while (s[i] != '\0')
 	{
-		free(argument[i]);
-		argument[i] = NULL;
+		s1[i] = f(i, s[i]);
 		i++;
 	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	s1[i] = '\0';
+	return (s1);
 }

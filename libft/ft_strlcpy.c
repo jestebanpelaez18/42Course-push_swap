@@ -1,47 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/10/27 12:07:45 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:44:49 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	t_list	*current;
+	const char	*source;
+	size_t		source_len;
+	size_t		i;
 
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
-	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
-	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
-
+	source = src;
+	source_len = ft_strlen(source);
 	i = 0;
-	while (argument[i])
+	if (dstsize == 0)
+		return (source_len);
+	while (src[i] != '\0' && dstsize != 0)
 	{
-		free(argument[i]);
-		argument[i] = NULL;
+		dst[i] = src[i];
 		i++;
+		dstsize--;
 	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	if (dstsize != 0)
+		dst[i] = '\0';
+	else
+		dst[i - 1] = '\0';
+	return (source_len);
 }

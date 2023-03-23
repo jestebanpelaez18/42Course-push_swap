@@ -1,47 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/10/26 13:34:27 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:41:01 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	t_list	*current;
+	unsigned char	*array;
 
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
+	array = (unsigned char *)str;
+	while (n != 0)
 	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
+		*array = c;
+		array++;
+		n--;
 	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
-
-	i = 0;
-	while (argument[i])
-	{
-		free(argument[i]);
-		argument[i] = NULL;
-		i++;
-	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	return (str);
 }

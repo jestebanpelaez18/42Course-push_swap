@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/22 20:19:06 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/23 15:38:02 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,6 @@ int	main(int argc, char **argv)
 	if (is_sorted(stack_a) == 1)
 	{
 		free_stack(&stack_a);
-		free_stack(&stack_b);
 		exit(0);
 	}
 	index_stack(&stack_a, ft_lstsize(stack_a));

@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/22 11:39:12 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:24 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/10/25 11:32:02 by jpelaez-          #+#    #+#             */
+/*   Updated: 2023/03/22 20:47:39 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-
-int	ft_strcmp(const char *str1, const char *str2)
-{
-	size_t	i;
-
-	i = 0;
-	while ((str1[i] != '\0' && str2[i] != '\0') && str1[i] == str2[i])
-		i++;
-	return ((unsigned char)str1[i] - (unsigned char)str2[i]);
-}
-
-int	ft_atoi_2(const char *number)
+int	ft_atoi(const char *number)
 {
 	int			i;
 	int			sing;
@@ -44,10 +33,10 @@ int	ft_atoi_2(const char *number)
 	{
 		result = result * 10 + (number[i] - '0');
 		if (result > 2147483648 && sing == -1)
-			return (0);
+			return (-2);
 		else if (result > 2147483647 && sing == 1)
-			return (0);
+			return (-1);
 		i++;
 	}
-	return (1);
+	return ((int)(result * sing));
 }

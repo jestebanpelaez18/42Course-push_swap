@@ -1,47 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/07 12:09:04 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:41:12 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+void	ft_putnbr_fd(int n, int fd)
 {
-	t_list	*current;
-
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
+	if (n == -2147483648)
 	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
+		ft_putnbr_fd(-2, fd);
+		n = 147483648;
 	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
-
-	i = 0;
-	while (argument[i])
+	if (n < 0)
 	{
-		free(argument[i]);
-		argument[i] = NULL;
-		i++;
+		n = -n;
+		ft_putchar_fd('-', fd);
 	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putnbr_fd(n % 10, fd);
+	}
+	if (n >= 0 && n < 10)
+	{
+		ft_putchar_fd(n + '0', fd);
+	}
 }

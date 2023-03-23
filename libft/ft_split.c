@@ -5,38 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 20:32:47 by jpelaez-          #+#    #+#             */
-/*   Updated: 2023/03/21 14:43:27 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/07 16:59:45 by jpelaez-          #+#    #+#             */
+/*   Updated: 2023/03/23 15:30:06 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
-
-static char	*ft_substr(char const *s, unsigned int start, size_t len)
-{
-	char	*s2;
-	size_t	i;
-	size_t	j;
-	size_t	space;
-
-	if (s == NULL)
-		return (0);
-	i = start;
-	space = start;
-	j = 0;
-	s2 = (char *)malloc(sizeof(char) * len + 1);
-	if (start >= ft_strlen(s))
-	{
-		*s2 = '\0';
-		return (s2);
-	}
-	if (s2 == NULL)
-		return (0);
-	while (s[i] != '\0' && i < len + space)
-		s2[j++] = s[i++];
-	s2[j] = '\0';
-	return (s2);
-}
+#include "libft.h"
 
 static int	ft_numwords(char const *str, int c)
 {

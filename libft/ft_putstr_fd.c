@@ -1,47 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/11/07 11:51:06 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/14 13:41:19 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+void	ft_putstr_fd(char *s, int fd)
 {
-	t_list	*current;
-
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
-	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
-	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (argument[i])
+	if (s == NULL)
+		return ;
+	while (s[i] != '\0')
 	{
-		free(argument[i]);
-		argument[i] = NULL;
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
 }

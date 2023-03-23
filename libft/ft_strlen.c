@@ -1,47 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_stack.c                                       :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/12 10:41:41 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:49 by jpelaez-         ###   ########.fr       */
+/*   Created: 2022/10/25 13:37:15 by jpelaez-          #+#    #+#             */
+/*   Updated: 2022/11/02 17:43:19 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_list **stack)
+size_t	ft_strlen(const char *str)
 {
-	t_list	*current;
-
-	if (!stack || !(*stack))
-		return ;
-	while ((*stack))
-	{
-		current = *stack;
-		*stack = (*stack)->next;
-		free(current);
-	}
-}
-
-void	free_argt(char **argument)
-{
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (argument[i])
+	while (str[i] != '\0')
 	{
-		free(argument[i]);
-		argument[i] = NULL;
 		i++;
 	}
-	free(argument);
-}
-
-void	error_msg(char *msg)
-{
-	ft_putendl_fd(msg, 2);
-	exit(0);
+	return (i);
 }
