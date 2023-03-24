@@ -6,17 +6,17 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 19:13:20 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:02 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:52:45 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# include "libft/libft.h"
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include "libft/libft.h"
 
 typedef struct s_list
 {
@@ -55,6 +55,5 @@ void				free_argt(char **argument);
 
 t_list				*ft_lstnew(int fparam);
 t_list				*ft_lstlast(t_list *lst);
-
 
 #endif

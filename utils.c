@@ -6,12 +6,11 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 11:39:12 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:43:24 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/24 14:52:57 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
 
 int	ft_strcmp(const char *str1, const char *str2)
 {
