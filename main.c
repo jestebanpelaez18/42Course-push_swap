@@ -6,7 +6,7 @@
 /*   By: jpelaez- <jpelaez-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 15:23:42 by jestebanpel       #+#    #+#             */
-/*   Updated: 2023/03/23 15:38:02 by jpelaez-         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:45:05 by jpelaez-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,19 @@ static void	push_swap(t_list **stack_a, t_list **stack_b, int size_stack)
 	return ;
 }
 
+static char	**split_2_argv(char **argv)
+{
+	char	**temp;
+
+	temp = ft_split(argv[1], ' ');
+	if (!temp[0])
+	{
+		free_argt(temp);
+		exit(0);
+	}
+	return (temp);
+}
+
 int	main(int argc, char **argv)
 {
 	t_list	*stack_a;
@@ -69,7 +82,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return (0);
 	if (argc == 2)
-		temp = ft_split(argv[1], ' ');
+		temp = split_2_argv(argv);
 	else
 		temp = argv;
 	if (!check_parameters(temp, argc))
